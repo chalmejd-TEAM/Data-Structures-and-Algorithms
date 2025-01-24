@@ -1,20 +1,18 @@
-from datetime import datetime
 nemo = ['nemo']
 everyone = ['dory', 'bruce', 'marlin', 'nemo', 'gill', 'bloat', 'nigel', 'squirt', 'darla', 'hank']
 large = nemo * 100000
 
 def findNemo(array):
     count = 0
-    t0 = datetime.now().microsecond
     for i in range(len(array)):
         if(array[i] == 'nemo'):
-            # print('Found Nemo')
             count = count + 1
-    t1 = datetime.now().microsecond
-    print('Call took:', t1-t0, 'microseconds. Found ', count, 'Nemos')
+    print(count, 'Nemos found')
     
+findNemo(large)  # O(n) ---> Linear Time
 
-findNemo(nemo)
-findNemo(everyone)
-findNemo(large)
+def logFirstTwo(array):
+    print(array[0])
+    print(array[1])
 
+logFirstTwo(everyone) #O(1) ---> Constant Time
