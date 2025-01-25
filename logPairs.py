@@ -6,4 +6,4 @@ def logAllPairs(array):
             if i != j:
                 print(array[i], array[j])   
 
-logAllPairs(x)
+logAllPairs(x) # O(n^2) ---> Quadratic Time
