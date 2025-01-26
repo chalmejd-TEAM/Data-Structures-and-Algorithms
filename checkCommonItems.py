@@ -42,12 +42,16 @@ print(ans)
 def checkCommonItems2(array1, array2):
     # Loop through first array and create dictionary and create object where keys = items in the array
     # Loop through second array and check if item in second array exists in created dictionary
-    dict1 = {}
+
+    arrayDict = {}
+    
     for i in range(len(array1)):
-        dict1[array1[i]] = True
+        arrayDict[array1[i]] = True
+
     for j in range(len(array2)):
-        if array2[j] in dict1:
+        if array2[j] in arrayDict:
             return True
+        
     return False
 
 
