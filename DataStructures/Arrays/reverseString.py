@@ -7,7 +7,7 @@ def reverseString(string):
         revString = ''.join(strList)
         return revString
     else:
-        return "Not a valid string!"
+        return "NOT A VALID STRING"
 
 ans = reverseString(string)
 print(ans)
