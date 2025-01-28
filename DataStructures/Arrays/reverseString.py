@@ -1,10 +1,13 @@
-string = 'Hi my name is Jacob'
+string = 'Hi there'
 
-def reverseString(str):
-    strList = list(str)
-    strList.reverse()
-    revString = ''.join(strList)
-    return revString
+def reverseString(string):
+    if (isinstance(string, str)):
+        strList = list(string)
+        strList.reverse()
+        revString = ''.join(strList)
+        return revString
+    else:
+        return "Not a valid string!"
 
 ans = reverseString(string)
 print(ans)
