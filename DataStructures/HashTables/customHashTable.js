@@ -7,7 +7,7 @@ class HashTable {
     _hash(key) {
         let hash = 0;
         for (let i=0; i < key.length; i++){
-            hash = (hash + key.charCodeAt(i) * i) % this.data.length
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length;
         }
         return hash;
     }
@@ -18,8 +18,8 @@ class HashTable {
         if (!this.data[address]) {
             this.data[address] = [];
         } 
-        this.data[address].push([key, value])
-        return this.data
+        this.data[address].push([key, value]);
+        return this.data;
     }
 
     // Get Method
@@ -38,9 +38,14 @@ class HashTable {
 
     // Keys Method
     keys() {
-
+        const keysArray = [];
+        for (let i =0; i<this.data.length; i++) {
+            if(this.data[i]) {
+                keysArray.push(this.data[i][0][0]);
+            }
+        }
+        return keysArray;
     }
-
 }
 
 const myHashTable = new HashTable(50);
@@ -49,3 +54,4 @@ myHashTable.set('apples', 54);
 myHashTable.set('oranges', 97);
 myHashTable.set('kiwis', 2);
 myHashTable.get('grapes');
+myHashTable.keys();
