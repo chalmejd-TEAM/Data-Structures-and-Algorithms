@@ -186,3 +186,42 @@ class LinkedList:
         # if list is empty return 0
         else:
             return 0
+
+# Create a new linked list
+llist = LinkedList()
+
+# Add nodes to the linked list
+llist.append('a')
+llist.append('b')
+llist.prepend('c')
+llist.append('d')
+llist.insert('g', 2)
+
+# Print the linked list
+print('Node Data:')
+llist.printLL()
+
+# Remove nodes form the linked list
+print("\nRemove First Node:")
+llist.remove_first()
+llist.printLL()
+
+print("\nRemove Last Node:")
+llist.remove_last()
+llist.printLL()
+
+print("\nRemove Node at Index 1:")
+llist.remove(1)
+llist.printLL()
+
+# Print the LL after all removals
+print("\nLinked list after removing nodes:")
+llist.printLL()
+
+# Update node at index 0 to 'z' and print the LL
+print("\nUpdate node Value at Index 0:")
+llist.update('z', 0)
+llist.printLL()
+
+# Print the size of the LL
+print("\nSize of linked list:", llist.sizeLL())
