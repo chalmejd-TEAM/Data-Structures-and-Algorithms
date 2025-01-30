@@ -89,4 +89,43 @@ def remove_first(self):
     # Set head to node pointed to by the next of the the current head
     self.head = self.head.next
 
+def remove_last(self):
+    # If list is empty return while doing nothing
+    if self.head is None:
+        return
+    
+    current_node = self.head # Set current node variable to the head node
+    # While two nodes after current node exist
+    while (current_node.next != None and current_node.next.next != None):
+        # Set current node to next node
+        current_node = current_node.next
+    # Set next value of current node to None
+    current_node.next = None
+
+def remove(self, index):
+    # If list is empty return and do nothing
+    if self.head is None:
+        return
+    
+    current_node = self.head # Set current node to first node in list
+    position = 0 # Set position index to 0
+
+    # If given index is 0 use remove_first function
+    if index == 0:
+        self.remove_first()
+    # Else start traversing the list
+    else:
+        # While current node exists and position is less than the given index minus 1
+        while current_node != None and position < index - 1:
+            # Increment position and move current node to the next in the list
+            position += 1
+            current_node = current_node.next
+        
+        # If the current node or next node is none return error
+        if current_node is None or current_node.next is None:
+            print("Index is not present")
+        # Else set the next value for the current node to the next value of the next node
+        else:
+            current_node.next = current_node.next.next
+
 
