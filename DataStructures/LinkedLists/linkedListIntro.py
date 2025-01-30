@@ -25,6 +25,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    # Method to prepend data to the LL
     def prepend(self, data):
         new_node = Node(data) # Create new node with given data
         # Check if the head is an empty node, if empty make new node the head and return
@@ -36,6 +37,7 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
 
+    # Method to append data to the LL
     def append(self, data):
         new_node = Node(data) # Create new node with given data
         # Check if head is an empty node, if empty make new node the head and return
@@ -51,6 +53,7 @@ class LinkedList:
         # Set current_node.next to new_node making it last node of linked list
         current_node.next = new_node
 
+    # Method to insert data at given index to the LL
     def insert(self, data, index):
         # If index is 0, prepend the node and return
         if (index == 0):
@@ -72,6 +75,7 @@ class LinkedList:
         else:
             print("Index is not present") # If current node does not exist print error message
 
+    # Method to update value at given index of LL
     def update(self, val, index):
         current_node = self.head # Set current node to head node
         position = 0 # Set initial position index to 0
@@ -91,6 +95,7 @@ class LinkedList:
             else:
                 print("Index not present") # Else print error message
 
+    # Method to remove first value of LL
     def remove_first(self):
         # Check if head does not exist, and return if head not present
         if(self.head == None):
@@ -98,6 +103,7 @@ class LinkedList:
         # Set head to node pointed to by the next of the the current head
         self.head = self.head.next
 
+    # Method to remove last value of LL
     def remove_last(self):
         # If list is empty return while doing nothing
         if self.head is None:
@@ -111,6 +117,7 @@ class LinkedList:
         # Set next value of current node to None
         current_node.next = None
 
+    # Method to remove value at given index of LL
     def remove(self, index):
         # If list is empty return and do nothing
         if self.head is None:
@@ -137,6 +144,7 @@ class LinkedList:
             else:
                 current_node.next = current_node.next.next
 
+    # Method to remove data from LL that matches given data
     def remove_data(self, data):
         current_node = self.head # Set current node to first item in list
 
@@ -156,6 +164,7 @@ class LinkedList:
         else:
             current_node.next = current_node.next.next
 
+    # Print the LL
     def printLL(self):
         current_node = self.head # Set current node to first node in list
         # Traverse the list and print the data from each node while current node exists
@@ -163,6 +172,7 @@ class LinkedList:
             print(current_node.data)
             current_node = current_node.next
 
+    # Print the size of the LL
     def sizeLL(self):
         size = 0 # Set initial size to 0
         # If list has head node
