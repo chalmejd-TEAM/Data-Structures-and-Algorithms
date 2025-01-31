@@ -24,12 +24,10 @@ class Queue:
         if self.first is None:
             self.first = new_node
             self.last = new_node
-            self.length = self.length+1
-            return
         else:
             self.last.next = new_node
             self.last = new_node
-            self.length = self.length+1
+        self.length = self.length+1
 
     def dequeue(self):
         if self.first == None:

@@ -22,12 +22,10 @@ class Stack:
         new_node = Node(data)
         if self.top is None:
             self.top = new_node
-            self.length = self.length+1
-            return
         else:
             new_node.next = self.top
             self.top = new_node
-            self.length = self.length+1
+        self.length = self.length+1
 
     def pop(self):
         if self.top == None:
