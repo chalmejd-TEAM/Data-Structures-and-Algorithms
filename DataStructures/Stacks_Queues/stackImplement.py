@@ -10,7 +10,6 @@ class Stack:
     # Initialize Stack with top and bottom set to None
     def __init__(self):
         self.top = None
-        self.bottom = None
         self.length = 0
 
     def peek(self):
@@ -23,15 +22,21 @@ class Stack:
         new_node = Node(data)
         if self.top is None:
             self.top = new_node
+            self.length = self.length+1
             return
         else:
             new_node.next = self.top
             self.top = new_node
+            self.length = self.length+1
 
     def pop(self):
         if self.top == None:
             return
         self.top = self.top.next
+        self.length = self.length-1
+
+    def stackSize(self):
+        print(self.length)
 
 myStack = Stack()
 
@@ -39,14 +44,17 @@ myStack.peek()
 myStack.push('google')
 myStack.push('bing')
 myStack.push('microsoft')
+myStack.stackSize()
 
 myStack.peek()
+
+myStack.pop()
+myStack.peek()
+myStack.stackSize()
 
 myStack.pop()
 myStack.peek()
 
 myStack.pop()
 myStack.peek()
-
-myStack.pop()
-myStack.peek()
+myStack.stackSize()
