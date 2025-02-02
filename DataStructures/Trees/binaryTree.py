@@ -38,7 +38,11 @@ class BinarySearchTree:
         currentNode = self.root
         while True:
             if currentNode.value == value:
-                print('Value:', currentNode.value, '\nLeft:', currentNode.left.value, '\nRight:', currentNode.right.value)
+                print('Value:', currentNode.value)
+                if currentNode.left:
+                    print('Left:', currentNode.left.value)
+                if currentNode.right:
+                    print('Right:', currentNode.right.value)
                 break
             elif currentNode.value > value:
                 currentNode = currentNode.left
