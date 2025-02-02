@@ -3,7 +3,6 @@
 # 1   6   15   170
 
 # Binary tree node class
-print(None)
 class Node:
     def __init__(self, value):
         self.value = value
