@@ -53,9 +53,69 @@ class BinarySearchTree:
         else:
             print('Tree is empty')
 
+    def remove(self, value):
+        if (self.root):
+            currentNode = self.root
+            parentNode = None
+            while currentNode:
+                if value < currentNode.value:
+                    parentNode = currentNode
+                    currentNode = currentNode.left
+                elif value > currentNode.value:
+                    parentNode = currentNode
+                    currentNode = currentNode.right
+                elif currentNode.value == value:
+                    # No right child
+                    if currentNode.right == None:
+                        if parentNode == None:
+                            self.root = currentNode.left
+                        else:
+                            # If parent > current value, make current left child a left child of parent
+                            if currentNode.value < parentNode.value:
+                                parentNode.left = currentNode.left
+                            # If parent < current value, make left child a right child of parent
+                            elif currentNode.value > parentNode.value:
+                                parentNode.right = currentNode.left
+                    # Right child with no left child
+                    elif currentNode.right.left == None:
+                        currentNode.right.left = currentNode.left
+                        if (parentNode == None):
+                            self.root = currentNode.right
+                        else:
+                            # If parent > current, make right child of the left the parent
+                            if currentNode.value < parentNode.value:
+                                parentNode.left = currentNode.right
+                            # If parent < current, make right child a right child of the parent
+                            elif currentNode.value > parentNode.value:
+                                parentNode.right = currentNode.right
+                    # Right child that has left child
+                    else:
+                        leftmost = currentNode.right.left
+                        leftmostParent = currentNode.right
+                        while(leftmost.left != None):
+                            leftmostParent = leftmost
+                            leftmost = leftmost.left
+
+                        leftmostParent.left = leftmost.right
+                        leftmost.left = currentNode.left
+                        leftmost.right = currentNode.right
+
+                        if parentNode == None:
+                            self.root = leftmost
+                        else:
+                            if currentNode.value < parentNode.value:
+                                parentNode.left = leftmost
+                            elif currentNode.value > parentNode.value:
+                                parentNode.right = leftmost
+                        return True
+
+            print('Does not exist')
+        else:
+            print('Tree is empty')
+
+
 
 myTree = BinarySearchTree()
-emptyTree = BinarySearchTree()
 
 myTree.insert(9)
 myTree.insert(20)
@@ -65,6 +125,9 @@ myTree.insert(1)
 myTree.insert(6)
 myTree.insert(170)
 myTree.lookup(20)
-emptyTree.lookup(2)
+
+myTree.remove(99)
+myTree.lookup(15)
+
 
 
