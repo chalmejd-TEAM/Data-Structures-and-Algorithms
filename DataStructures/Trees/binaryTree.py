@@ -126,8 +126,6 @@ myTree.insert(6)
 myTree.insert(170)
 myTree.lookup(20)
 
-myTree.remove(99)
-myTree.lookup(15)
 
 
 
