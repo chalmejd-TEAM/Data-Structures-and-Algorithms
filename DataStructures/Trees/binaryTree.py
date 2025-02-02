@@ -19,7 +19,7 @@ class BinarySearchTree:
             self.root = newNode
         else:
             currentNode = self.root
-            while currentNode.value != newNode:
+            while True:
                 if newNode.value > currentNode.value:
                     if currentNode.right:
                         currentNode = currentNode.right
