@@ -37,23 +37,25 @@ class BinarySearchTree:
     def lookup(self, value):
         if (self.root):
             currentNode = self.root
-            while True:
+            while currentNode:
                 if currentNode.value == value:
                     print('Value:', currentNode.value)
                     if currentNode.left:
                         print('Left:', currentNode.left.value)
                     if currentNode.right:
                         print('Right:', currentNode.right.value)
-                    break
+                    return
                 elif currentNode.value > value:
                     currentNode = currentNode.left
                 elif currentNode.value < value:
                     currentNode = currentNode.right
+            print('Does not exist')
         else:
-            return
+            print('Tree is empty')
 
 
 myTree = BinarySearchTree()
+emptyTree = BinarySearchTree()
 
 myTree.insert(9)
 myTree.insert(20)
@@ -62,6 +64,7 @@ myTree.insert(15)
 myTree.insert(1)
 myTree.insert(6)
 myTree.insert(170)
-myTree.lookup(1)
+myTree.lookup(20)
+emptyTree.lookup(2)
 
 
