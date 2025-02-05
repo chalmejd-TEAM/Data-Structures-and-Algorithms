@@ -113,7 +113,7 @@ class BinarySearchTree:
         else:
             print('Tree is empty')
     
-    def bredthFirstSearch(self):
+    def bfs(self):
         currentNode = self.root
         list = []
         queue = []
@@ -127,6 +127,17 @@ class BinarySearchTree:
             if currentNode.right:
                 queue.append(currentNode.right)
         return list
+    
+    def bfsR(self, queue, list):
+        if len(queue) == 0:
+            return list
+        currentNode = queue.pop(0)
+        list.append(currentNode.value)
+        if currentNode.left:
+                queue.append(currentNode.left)
+        if currentNode.right:
+            queue.append(currentNode.right)
+        return self.bfsR(queue, list)
     
 
 
@@ -144,8 +155,11 @@ myTree.insert(6)
 myTree.insert(170)
 myTree.lookup(20)
 
-bfs = myTree.bredthFirstSearch()
-print(bfs)
+ans = myTree.bfs()
+print(ans)
+
+ansR = myTree.bfsR([myTree.root], [])
+print(ansR)
 
 
 
