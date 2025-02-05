@@ -112,6 +112,24 @@ class BinarySearchTree:
             print('Does not exist')
         else:
             print('Tree is empty')
+    
+    def bredthFirstSearch(self):
+        currentNode = self.root
+        list = []
+        queue = []
+        queue.append(currentNode)
+        
+        while(len(queue) > 0):
+            currentNode = queue.pop(0)
+            list.append(currentNode.value)
+            if currentNode.left:
+                queue.append(currentNode.left)
+            if currentNode.right:
+                queue.append(currentNode.right)
+        return list
+    
+
+
 
 
 
@@ -125,6 +143,10 @@ myTree.insert(1)
 myTree.insert(6)
 myTree.insert(170)
 myTree.lookup(20)
+
+bfs = myTree.bredthFirstSearch()
+print(bfs)
+
 
 
 
