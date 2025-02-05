@@ -139,9 +139,42 @@ class BinarySearchTree:
             queue.append(currentNode.right)
         return self.bfsR(queue, list)
     
+    def dfsInOrder(self):
+        return traverseInOrder(self.root, [])
+
+    def dfsPreOrder(self):
+        return traversePreOrder(self.root, [])
+
+    def dfsPostOrder(self):
+        return traversePostOrder(self.root, [])
+    
+    
+def traverseInOrder(node, list):
+    if node.left:
+        traverseInOrder(node.left, list)
+    list.append(node.value)
+    if node.right:
+        traverseInOrder(node.right, list)
+    return list
+
+def traversePreOrder(node, list):
+    list.append(node.value)
+    if node.left:
+        traversePreOrder(node.left, list)
+    if node.right:
+        traversePreOrder(node.right, list)
+    return list
 
 
+def traversePostOrder(node, list):
+    if node.left:
+        traversePostOrder(node.left, list)
+    if node.right:
+        traversePostOrder(node.right, list)
+    list.append(node.value)
+    return list
 
+    
 
 
 myTree = BinarySearchTree()
@@ -156,10 +189,14 @@ myTree.insert(170)
 myTree.lookup(20)
 
 ans = myTree.bfs()
-print(ans)
+print('BFS:', ans)
 
 ansR = myTree.bfsR([myTree.root], [])
-print(ansR)
+print('BFS Recursive:', ansR)
+
+print('DFS In Order:', myTree.dfsInOrder())
+print('DFS Pre Order:', myTree.dfsPreOrder())
+print('DFS Post Order:', myTree.dfsPostOrder())
 
 
 
